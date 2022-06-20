@@ -1,13 +1,15 @@
 import { ThemeProvider } from 'next-themes';
 
 import '../styles/globals.css';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const MyApp = ({ Component, pageProps }) => (
   <ThemeProvider attribute="class">
-    <div>
-      <h1>NAVBAR</h1>
+    <div className="dark:bg-nft-dark bg-white min-h-screen">
+      <Navbar />
       <Component {...pageProps} />
-      <h1>FOOTER</h1>
+      <Footer />
     </div>
   </ThemeProvider>
 
