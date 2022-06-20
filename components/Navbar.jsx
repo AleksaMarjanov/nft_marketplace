@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import images from '../assets';
+import Button from './Button';
 
 // helper comp for navbar
 const MenuItems = ({ isMobile, active, setActive }) => {
@@ -40,6 +41,13 @@ const MenuItems = ({ isMobile, active, setActive }) => {
       ))}
     </ul>
   );
+};
+const ButtonGroup = () => {
+  const hasConnected = false;
+
+  return hasConnected ? (
+    <Button classStyles="mx-2 rounded-xl"/>
+  ) : <Button />;
 };
 
 const Navbar = () => {
@@ -82,6 +90,7 @@ const Navbar = () => {
       <div className="md:hidden flex">
         <ul className="list-none flexCenter flex-row">
           <MenuItems active={active} setActive={setActive} />
+          <ButtonGroup />
         </ul>
       </div>
     </nav>
