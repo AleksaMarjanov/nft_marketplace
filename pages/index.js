@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import { Banner } from '../components';
+import { Banner, CreatorCard } from '../components';
+
+import images from '../assets';
 
 const Home = () => {
   const parentRef = useRef(null);
@@ -25,7 +27,12 @@ const Home = () => {
           <div className="relative flex-1 max-w-full flex mt-3" ref={parentRef}>
             <div className="flex flex-row w-max overflow-x-scroll no-scrollbar select-none" ref={scrollRef}>
               {[6, 7, 8, 9, 10].map((i) => (
-                <CreatorCard />
+                <CreatorCard
+                  key={`creator-${i}`}
+                  rank={i}
+                  creatorImage={images[`creator${i}`]}
+                  creatorName={}
+                /> 
               ))}
             </div>
           </div>
