@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Banner, CreatorCard } from '../components';
 
 import images from '../assets';
+import { makeId } from '../utils/makeId';
 
 const Home = () => {
   const parentRef = useRef(null);
@@ -31,8 +32,9 @@ const Home = () => {
                   key={`creator-${i}`}
                   rank={i}
                   creatorImage={images[`creator${i}`]}
-                  creatorName={}
-                /> 
+                  creatorName={`0x${makeId}...${makeId(4)}`}
+                  creatrorEths={10 - i * 0.5}
+                  />
               ))}
             </div>
           </div>
