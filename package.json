@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@openzeppelin/contracts": "^4.6.0",
     "dropzone": "^6.0.0-beta.2",
     "next": "12.1.6",
     "next-themes": "^0.2.0",
