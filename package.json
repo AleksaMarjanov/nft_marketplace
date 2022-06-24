@@ -16,11 +16,16 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-dropzone": "^14.2.1",
-    "swc-loader": "^0.2.3"
+    "swc-loader": "^0.2.3",
+    "hardhat": "^2.9.9",
+    "ethereum-waffle": "^3.4.4",
+    "ethers": "^5.6.9",
+    "@nomiclabs/hardhat-ethers": "^2.0.6",
+    "@nomiclabs/hardhat-waffle": "^2.0.3"
+
   },
   "devDependencies": {
-    "@nomiclabs/hardhat-ethers": "^2.0.6",
-    "@nomiclabs/hardhat-waffle": "^2.0.3",
+   
     "autoprefixer": "^10.4.2",
     "chai": "^4.3.6",
     "eslint": "^8.10.0",
@@ -30,8 +35,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.29.3",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "ethereum-waffle": "^3.4.4",
-    "ethers": "^5.6.9",
+   
     "hardhat": "^2.9.9",
     "postcss": "^8.4.7",
     "tailwindcss": "^3.0.23"
