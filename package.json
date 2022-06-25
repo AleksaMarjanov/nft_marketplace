@@ -17,6 +17,7 @@
     "ethereum-waffle": "^3.4.4",
     "ethers": "^5.6.9",
     "hardhat": "^2.9.9",
+    "ipfs-http-client": "^57.0.3",
     "next": "12.1.6",
     "next-themes": "^0.2.0",
     "react": "18.2.0",
