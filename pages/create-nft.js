@@ -26,9 +26,9 @@ const CreateNFT = () => {
     `dark:bg-nft-black-1 bg-white border dark:border-white 
     border:nft-gray-2 flex flex-col items-center
      p-5 rounded-sm border-dashed
-     ${isDragActive && 'border-file-active'}
-     ${isDragAccept && 'border-file-accept'}
-     ${isDragReject && 'border-file-reject'}
+     ${isDragActive ? 'border-file-active' : ''}
+     ${isDragAccept ? 'border-file-accept' : ''}
+     ${isDragReject ? 'border-file-reject' : ''}
      `
   ), [isDragAccept, isDragActive, isDragReject]);
 
@@ -52,7 +52,7 @@ const CreateNFT = () => {
                     height={100}
                     objectFit="contain"
                     alt="file upload"
-                    className={theme === 'light' && 'filter invert'}
+                    className={theme === 'light' ? 'filter invert' : ''}
                   />
                 </div>
 
@@ -60,13 +60,13 @@ const CreateNFT = () => {
                 <p className="font-poppins dark:text-white text-nft-black-1 text-sm font-semibold">or Browse media on your device</p>
               </div>
             </div>
-            {fileUrl && (
+            {fileUrl ? (
               <aside>
                 <div>
                   <img src={fileUrl} alt="asset_file" />
                 </div>
               </aside>
-            )}
+            ) : ''}
           </div>
         </div>
 

@@ -31,7 +31,7 @@ const Input = ({ inputType, title, placeholder, handleClick }) => {
       w-full outline-none font-poppins dark:text-white
       text-nft-gray-2 text-base mt-4 px-4 py-3"
           placeholder={placeholder}
-          onChagne={handleClick}
+          onChange={handleClick}
         />
       )
         : (
