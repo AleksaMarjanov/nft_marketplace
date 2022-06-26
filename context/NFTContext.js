@@ -71,7 +71,7 @@ export const NFTProvider = ({ children }) => {
 
       router.push('/');
     } catch (error) {
-      console.log('Error while uploading file to IPFS ');
+      console.log('Error while uploading file to IPFS', error);
     }
   };
 
