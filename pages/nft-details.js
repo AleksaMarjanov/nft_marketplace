@@ -38,11 +38,12 @@ const PaymentBodyCmp = ({ nft, nftCurrency }) => (
 );
 
 const NFTDetails = () => {
-  const { currentAccount, nftCurrency } = useContext(NFTContext);
+  const { currentAccount, nftCurrency, BuyNFT } = useContext(NFTContext);
   const [isLoading, setIsLoading] = useState(true);
   const [nft, setNft] = useState({ image: '', tokenId: '', name: '', owner: '', price: '', seller: '' });
   const router = useRouter();
   const [paymentModal, setPaymentModal] = useState(false);
+const [successModal, setSuccessModal] = useState(false)
 
   useEffect(() => {
     if (!router.isReady) return;
@@ -51,6 +52,13 @@ const NFTDetails = () => {
 
     setIsLoading(false);
   }, [router.isReady]);
+
+  const checkout = () => {
+    await BuyNFT(nft);
+
+    setPaymentModal(false);
+    setSuccessModal(true);
+  }
 
   if (isLoading) return <Loader />;
 
@@ -116,7 +124,7 @@ const NFTDetails = () => {
             <Button
               btnName="Checkout"
               classStyles="mr-5 sm:mb-5 sm:mr-0 rounded-xl"
-              handleClick={() => {}}
+              handleClick={checkout}
             />
             <Button
               btnName="Cancel"
@@ -128,6 +136,26 @@ const NFTDetails = () => {
         handleClose={() => setPaymentModal(false)}
       />
       )}
+
+      <Modal 
+      header="Payment Successful"
+      body={( <div className='flexCenter flex-col text-center' onClick={() => setSuccesModal(false)}>
+          <div className='relative w-52 h-52'>
+            <Image src={nft.image} objectFit="cover" layout='fill' />
+            </div>
+        </div>
+        )}
+        footer={(
+          <div className="flexCenter flex-col sm:flex-col">
+            <Button
+              btnName="Check it out"
+              classStyles="sm:mb-5 sm:mr-0 rounded-xl"
+              handleClick={() => router.push('/my-nfts')}
+            />
+          </div>
+       )}
+        handleClose={() => setPaymentModal(false)}
+      />
     </div>
   );
 };
