@@ -143,6 +143,7 @@ const [successModal, setSuccessModal] = useState(false)
           <div className='relative w-52 h-52'>
             <Image src={nft.image} objectFit="cover" layout='fill' />
             </div>
+            <p className="font-poppins dark:text-white text-nft-black-1 font-normal text-sm minlg:text-xl mt-10">You successfully purchased <span className="font-semibold">{nft.name} </span> from<span className="font-semibold">{shortenAddress(nft.seller)} from</span></p>
         </div>
         )}
         footer={(
