@@ -43,7 +43,7 @@ const NFTDetails = () => {
   const [nft, setNft] = useState({ image: '', tokenId: '', name: '', owner: '', price: '', seller: '' });
   const router = useRouter();
   const [paymentModal, setPaymentModal] = useState(false);
-const [successModal, setSuccessModal] = useState(false)
+  const [successModal, setSuccessModal] = useState(false);
 
   useEffect(() => {
     if (!router.isReady) return;
@@ -53,12 +53,12 @@ const [successModal, setSuccessModal] = useState(false)
     setIsLoading(false);
   }, [router.isReady]);
 
-  const checkout = () => {
+  const checkout = async () => {
     await BuyNFT(nft);
 
     setPaymentModal(false);
     setSuccessModal(true);
-  }
+  };
 
   if (isLoading) return <Loader />;
 
@@ -136,15 +136,17 @@ const [successModal, setSuccessModal] = useState(false)
         handleClose={() => setPaymentModal(false)}
       />
       )}
-
-      <Modal 
-      header="Payment Successful"
-      body={( <div className='flexCenter flex-col text-center' onClick={() => setSuccesModal(false)}>
-          <div className='relative w-52 h-52'>
-            <Image src={nft.image} objectFit="cover" layout='fill' />
+      {successModal
+      && (
+      <Modal
+        header="Payment Successful"
+        body={(
+          <div className="flexCenter flex-col text-center" onClick={() => setSuccessModal(false)}>
+            <div className="relative w-52 h-52">
+              <Image src={nft.image} objectFit="cover" layout="fill" />
             </div>
-            <p className="font-poppins dark:text-white text-nft-black-1 font-normal text-sm minlg:text-xl mt-10">You successfully purchased <span className="font-semibold">{nft.name} </span> from<span className="font-semibold">{shortenAddress(nft.seller)} from</span></p>
-        </div>
+            <p className="font-poppins dark:text-white text-nft-black-1 font-normal text-sm minlg:text-xl mt-10">You successfully purchased <span className="font-semibold">{nft.name} </span> from <span className="font-semibold">{shortenAddress(nft.seller)}</span></p>
+          </div>
         )}
         footer={(
           <div className="flexCenter flex-col sm:flex-col">
@@ -157,6 +159,7 @@ const [successModal, setSuccessModal] = useState(false)
        )}
         handleClose={() => setPaymentModal(false)}
       />
+      )}
     </div>
   );
 };
