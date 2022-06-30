@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useContext } from 'react';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { Banner, CreatorCard, NFTCard } from '../components';
+import { getCreators } from '../utils/getTopCreators';
 
 import images from '../assets';
 import { makeId } from '../utils/makeId';
@@ -55,6 +56,8 @@ const Home = () => {
       window.removeEventListener('resize', isScrollable);
     };
   });
+
+  const TopCreators = getCreators(nfts);
 
   return (
     <div className="flex justify-center sm:px-4 p-12">
